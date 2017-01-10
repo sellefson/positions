@@ -24,7 +24,7 @@
           Official
         </label>
 
-        <input type="text" id="official_id" name="official_id" placeholder="Official" class="form-control" value="<%= @seat.official_id %>">
+        <%= select_tag(:official_id, options_from_collection_for_select(Position.all, :id, :name, @seat.official_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for position_id -->
