@@ -1,6 +1,7 @@
 class ElectedofficialsController < ApplicationController
   def index
-    @electedofficials = Electedofficial.page(params[:page]).per(10)
+    @q = Electedofficial.ransack(params[:q])
+    @electedofficials = @q.result(:distinct => true).includes(:seats, :officials).page(params[:page]).per(10)
 
     render("electedofficials/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class PositionsController < ApplicationController
   def index
-    @positions = Position.page(params[:page]).per(10)
+    @q = Position.ransack(params[:q])
+    @positions = @q.result(:distinct => true).includes(:seats, :district, :elected_positions).page(params[:page]).per(10)
 
     render("positions/index.html.erb")
   end

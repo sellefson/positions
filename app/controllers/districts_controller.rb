@@ -1,6 +1,7 @@
 class DistrictsController < ApplicationController
   def index
-    @districts = District.page(params[:page]).per(10)
+    @q = District.ransack(params[:q])
+    @districts = @q.result(:distinct => true).includes(:positions).page(params[:page]).per(10)
 
     render("districts/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class SeatsController < ApplicationController
   def index
-    @seats = Seat.page(params[:page]).per(10)
+    @q = Seat.ransack(params[:q])
+    @seats = @q.result(:distinct => true).includes(:official, :position).page(params[:page]).per(10)
 
     render("seats/index.html.erb")
   end
