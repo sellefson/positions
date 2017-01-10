@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the District resource:
+  # CREATE
+  get "/districts/new", :controller => "districts", :action => "new"
+  post "/create_district", :controller => "districts", :action => "create"
+
+  # READ
+  get "/districts", :controller => "districts", :action => "index"
+  get "/districts/:id", :controller => "districts", :action => "show"
+
+  # UPDATE
+  get "/districts/:id/edit", :controller => "districts", :action => "edit"
+  post "/update_district/:id", :controller => "districts", :action => "update"
+
+  # DELETE
+  get "/delete_district/:id", :controller => "districts", :action => "destroy"
+  #------------------------------
+
   # Routes for the Position resource:
   # CREATE
   get "/positions/new", :controller => "positions", :action => "new"
