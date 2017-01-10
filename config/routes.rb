@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "positions#index"
   # Routes for the Seat resource:
   # CREATE
