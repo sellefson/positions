@@ -1,6 +1,6 @@
 class ElectedofficialsController < ApplicationController
   def index
-    @electedofficials = Electedofficial.all
+    @electedofficials = Electedofficial.page(params[:page]).per(10)
 
     render("electedofficials/index.html.erb")
   end
