@@ -23,3 +23,34 @@
     </div>
   </div>
 </div>
+
+<!-- A District has many positions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Positions
+      </li>
+
+      <% @district.positions.each do |position| %>
+        <li class="list-group-item">
+          <a href="/positions/<%= position.id %>">
+            <%= position.name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/positions/<%= position.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/positions/<%= position.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_position/<%= position.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
