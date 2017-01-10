@@ -9,6 +9,10 @@ class Position < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :elected_positions,
+             :through => :seats,
+             :source => :position
+
   # Validations
 
 end

@@ -7,6 +7,10 @@ class Electedofficial < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :officials,
+             :through => :seats,
+             :source => :official
+
   # Validations
 
 end
