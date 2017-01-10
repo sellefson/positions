@@ -9,7 +9,13 @@
       <dd><%= @position.name %></dd>
 
       <dt>District</dt>
-      <dd><%= @position.district_id %></dd>
+      <dd>
+        <% if @position.district.present? %>
+          <a href="/districts/<%= @position.district_id %>">
+            <%= @position.district.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

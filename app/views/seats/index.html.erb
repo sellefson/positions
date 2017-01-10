@@ -16,8 +16,20 @@
 
       <% @seats.each do |seat| %>
       <tr>
-        <td><%= seat.official.name %></td>
-        <td><%= seat.position.name %></td>
+        <td>
+          <% if seat.official.present? %>
+            <a href="/positions/<%= seat.official.id %>">
+              <%= seat.official.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if seat.position.present? %>
+            <a href="/electedofficials/<%= seat.position.id %>">
+              <%= seat.position.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/seats/<%= seat.id %>" class="btn btn-primary">Show</a>
           <a href="/seats/<%= seat.id %>/edit" class="btn btn-warning">Edit</a>

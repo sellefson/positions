@@ -17,7 +17,13 @@
       <% @positions.each do |position| %>
       <tr>
         <td><%= position.name %></td>
-        <td><%= position.district.name %></td>
+        <td>
+          <% if position.district.present? %>
+            <a href="/districts/<%= position.district.id %>">
+              <%= position.district.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/positions/<%= position.id %>" class="btn btn-primary">Show</a>
           <a href="/positions/<%= position.id %>/edit" class="btn btn-warning">Edit</a>
