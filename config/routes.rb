@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "positions#index"
   # Routes for the Seat resource:
   # CREATE
   get "/seats/new", :controller => "seats", :action => "new"
