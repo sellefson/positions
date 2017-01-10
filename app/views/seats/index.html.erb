@@ -16,7 +16,7 @@
 
       <% @seats.each do |seat| %>
       <tr>
-        <td><%= seat.official_id %></td>
+        <td><%= seat.official.name %></td>
         <td><%= seat.position_id %></td>
         <td>
           <a href="/seats/<%= seat.id %>" class="btn btn-primary">Show</a>
