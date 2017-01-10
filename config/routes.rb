@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Electedofficial resource:
+  # CREATE
+  get "/electedofficials/new", :controller => "electedofficials", :action => "new"
+  post "/create_electedofficial", :controller => "electedofficials", :action => "create"
+
+  # READ
+  get "/electedofficials", :controller => "electedofficials", :action => "index"
+  get "/electedofficials/:id", :controller => "electedofficials", :action => "show"
+
+  # UPDATE
+  get "/electedofficials/:id/edit", :controller => "electedofficials", :action => "edit"
+  post "/update_electedofficial/:id", :controller => "electedofficials", :action => "update"
+
+  # DELETE
+  get "/delete_electedofficial/:id", :controller => "electedofficials", :action => "destroy"
+  #------------------------------
+
   # Routes for the District resource:
   # CREATE
   get "/districts/new", :controller => "districts", :action => "new"
