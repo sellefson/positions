@@ -6,6 +6,7 @@ class ElectedofficialsController < ApplicationController
   end
 
   def show
+    @seat = Seat.new
     @electedofficial = Electedofficial.find(params[:id])
 
     render("electedofficials/show.html.erb")

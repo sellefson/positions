@@ -6,6 +6,7 @@ class DistrictsController < ApplicationController
   end
 
   def show
+    @position = Position.new
     @district = District.find(params[:id])
 
     render("districts/show.html.erb")

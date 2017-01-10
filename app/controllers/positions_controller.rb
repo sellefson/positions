@@ -6,6 +6,7 @@ class PositionsController < ApplicationController
   end
 
   def show
+    @seat = Seat.new
     @position = Position.find(params[:id])
 
     render("positions/show.html.erb")
